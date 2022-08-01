@@ -1,0 +1,159 @@
+local Main = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local On = Instance.new("TextButton")
+local Off = Instance.new("TextButton")
+local Timer = Instance.new("TextBox")
+local ChatMessage = Instance.new("TextBox")
+local AntiAdmin = Instance.new("TextButton")
+local Soon = Instance.new("TextButton")
+
+local activated = false
+
+--Properties:
+
+Main.Name = "Main"
+Main.Parent = game.CoreGui
+Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = Main
+MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+MainFrame.BorderColor3 = Color3.fromRGB(25, 25, 25)
+MainFrame.BorderSizePixel = 2
+MainFrame.Position = UDim2.new(0.137307435, 0, 0.252895743, 0)
+MainFrame.Size = UDim2.new(0, 434, 0, 237)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Title.BorderColor3 = Color3.fromRGB(25, 25, 25)
+Title.BorderSizePixel = 2
+Title.Size = UDim2.new(0, 434, 0, 50)
+Title.Font = Enum.Font.SourceSansSemibold
+Title.Text = "Random-Teleports (by Tewxx)"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Off.Name = "Off"
+Off.Parent = MainFrame
+Off.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Off.BorderColor3 = Color3.fromRGB(25, 25, 25)
+Off.BorderSizePixel = 2
+Off.Position = UDim2.new(0.51382488, 0, 0.77131784, 0)
+Off.Size = UDim2.new(0, 204, 0, 50)
+Off.Font = Enum.Font.SourceSans
+Off.Text = "Off"
+Off.TextColor3 = Color3.fromRGB(255, 255, 255)
+Off.TextScaled = true
+Off.TextSize = 14.000
+Off.TextWrapped = true
+Off.MouseButton1Click:Connect(function()
+	activated = false
+end)
+
+Timer.Name = "Timer"
+Timer.Parent = MainFrame
+Timer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Timer.BorderColor3 = Color3.fromRGB(25, 25, 25)
+Timer.BorderSizePixel = 2
+Timer.Position = UDim2.new(0.0161290318, 0, 0.24521637, 0)
+Timer.Size = UDim2.new(0, 204, 0, 50)
+Timer.Font = Enum.Font.SourceSans
+Timer.PlaceholderText = "Timer (Time to stay at the Player)"
+Timer.Text = ""
+Timer.TextColor3 = Color3.fromRGB(255, 255, 255)
+Timer.TextSize = 14.000
+
+On.Name = "On"
+On.Parent = MainFrame
+On.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+On.BorderColor3 = Color3.fromRGB(25, 25, 25)
+On.BorderSizePixel = 2
+On.Position = UDim2.new(0.0161290318, 0, 0.77131784, 0)
+On.Size = UDim2.new(0, 204, 0, 50)
+On.Font = Enum.Font.SourceSans
+On.Text = "On"
+On.TextColor3 = Color3.fromRGB(255, 255, 255)
+On.TextScaled = true
+On.TextSize = 14.000
+On.TextWrapped = true
+On.MouseButton1Click:Connect(function()
+	activated = true
+end)
+
+ChatMessage.Name = "ChatMessage"
+ChatMessage.Parent = MainFrame
+ChatMessage.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ChatMessage.BorderColor3 = Color3.fromRGB(25, 25, 25)
+ChatMessage.BorderSizePixel = 2
+ChatMessage.Position = UDim2.new(0.51382488, 0, 0.24521637, 0)
+ChatMessage.Size = UDim2.new(0, 204, 0, 50)
+ChatMessage.Font = Enum.Font.SourceSans
+ChatMessage.PlaceholderText = "Message (The message you want to send)"
+ChatMessage.Text = ""
+ChatMessage.TextColor3 = Color3.fromRGB(255, 255, 255)
+ChatMessage.TextSize = 14.000
+
+AntiAdmin.Name = "AntiAdmin"
+AntiAdmin.Parent = MainFrame
+AntiAdmin.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AntiAdmin.BorderColor3 = Color3.fromRGB(25, 25, 25)
+AntiAdmin.BorderSizePixel = 2
+AntiAdmin.Position = UDim2.new(0.0161290318, 0, 0.497056246, 0)
+AntiAdmin.Size = UDim2.new(0, 204, 0, 50)
+AntiAdmin.Font = Enum.Font.SourceSans
+AntiAdmin.Text = "Anti Admin"
+AntiAdmin.TextColor3 = Color3.fromRGB(255, 255, 255)
+AntiAdmin.TextScaled = true
+AntiAdmin.TextSize = 14.000
+AntiAdmin.TextWrapped = true
+AntiAdmin.MouseButton1Click:Connect(function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Exploit";
+		Text = "Anti-Admin was loaded!";
+		Duration = 5;
+	})
+end)
+
+Soon.Name = "Soon"
+Soon.Parent = MainFrame
+Soon.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Soon.BorderColor3 = Color3.fromRGB(25, 25, 25)
+Soon.BorderSizePixel = 2
+Soon.Position = UDim2.new(0.51382488, 0, 0.497056246, 0)
+Soon.Size = UDim2.new(0, 204, 0, 50)
+Soon.Font = Enum.Font.SourceSans
+Soon.Text = "Soon!"
+Soon.TextColor3 = Color3.fromRGB(255, 255, 255)
+Soon.TextScaled = true
+Soon.TextSize = 14.000
+Soon.TextWrapped = true
+
+while wait() do
+	if activated == true then
+		pcall(function()
+			for i, v in pairs(game.Players:GetPlayers()) do
+				if activated then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Character.HumanoidRootPart.Position)
+					
+					if ChatMessage.Text == "" then else
+						local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+						Event:FireServer(ChatMessage.Text, "All")
+					end
+					if Timer.Text == "" then
+						wait()
+					else
+						wait(tonumber(Timer.Text))
+					end
+				else
+					break
+				end
+			end
+		end)
+	end
+end
